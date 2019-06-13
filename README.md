@@ -1,5 +1,5 @@
 # halo-client-react
-A React client designed to interact with a Python-Flask API deployed to Heroku. Built using [Material-UI](https://material-ui.com/). The source code for this API can be found [here.](https://github.com/tomajohnson21/halo-server).
+A React client designed to interact with a Python-Flask API deployed to Heroku. Built using [Material-UI](https://material-ui.com/). The source code for this API can be found [here](https://github.com/tomajohnson21/halo-server).
 
 ## Dependencies
 * react
