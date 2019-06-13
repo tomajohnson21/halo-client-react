@@ -23,7 +23,7 @@ yarn install
 ## Usage
 
 As I am currently still learning how to deal with user authentication and protected routes in React, as well as better state management, 
-the UI is very finnicky, and lacks some important features, such as snackbars to alert. 
+the UI is very finnicky, and lacks some important features, such as snackbars to alert the user of errors, or redirecting the user upon successful registration or JWT Expiration. 
 
 ### Registration
 
