@@ -250,6 +250,7 @@ class Home extends React.Component {
                             </Grid>
                             </Grid>
                             <Button
+                            type="submit"
                             onClick={() => this.postContact()}
                             fullWidth
                             variant="contained"

@@ -10,7 +10,6 @@ import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import PropTypes from 'prop-types';
-import { Redirect } from 'react-router-dom';
 
 
 const styles = theme => ({
@@ -55,32 +54,19 @@ class SignUp extends React.Component {
     })
   }
 
-  signIn = () => {
+  register = () => {
 
     let user = {username: this.state.username, password: this.state.password}
 
-    console.log(user)
-
-    fetch("http://127.0.0.1:5000/login", 
+    fetch("https://halo-coding-challenge.herokuapp.com/register", 
       {method: "POST",
        headers: {"Content-Type": "application/json"},
        body: JSON.stringify(user)})
       .then(response => response.json())
       .then(response => {
         
-          localStorage.setItem("access_token", response.access_token)
-          this.checkAuth()
-
-          console.log(localStorage.getItem("access_token"))
+          console.log(response.message)
       })
-  }
-
-
-  renderRedirect = () => {
-
-    if(localStorage.getItem("access_token")){
-      return <Redirect to="/" />
-    }
   }
 
   render () {
@@ -108,6 +94,8 @@ class SignUp extends React.Component {
                   label="Username"
                   name="username"
                   autoComplete="username"
+                  value={this.state.username}
+                  onChange={this.handleFormChange}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -120,15 +108,16 @@ class SignUp extends React.Component {
                   type="password"
                   id="password"
                   autoComplete="current-password"
+                  onChange={this.handleFormChange}
                 />
               </Grid>
             </Grid>
             <Button
-              type="submit"
               fullWidth
               variant="contained"
               color="primary"
               className={classes.submit}
+              onClick={() => this.register()}
             >
               Sign Up
             </Button>

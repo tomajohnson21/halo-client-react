@@ -60,7 +60,7 @@ class SignIn extends React.Component {
 
       console.log(user)
 
-      fetch("http://127.0.0.1:5000/login", 
+      fetch("https://halo-coding-challenge.herokuapp.com/login", 
         {method: "POST",
          headers: {"Content-Type": "application/json"},
          body: JSON.stringify(user)})
@@ -68,9 +68,6 @@ class SignIn extends React.Component {
         .then(response => {
           
             localStorage.setItem("access_token", response.access_token)
-            this.checkAuth()
-
-            console.log(localStorage.getItem("access_token"))
         })
     }
 
@@ -125,7 +122,6 @@ class SignIn extends React.Component {
                         onChange={this.handleFormChange}
                         />
                         <Button
-                        //type="submit"
                         fullWidth
                         variant="contained"
                         color="primary"
